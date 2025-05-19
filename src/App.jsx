@@ -1,8 +1,13 @@
+// import libraries
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+// import components
 import DefaultLayout from "./layouts/DefaultLayout";
 import Homepage from "./pages/Homepage";
 import PostsPage from "./pages/PostsPage";
+
+// import context
+import PostsContext from "./context/PostsContext";
 
 function App() {
 
@@ -35,14 +40,18 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<DefaultLayout />}>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/posts" element={<PostsPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <PostsContext.Provider value={posts}>
+
+        <BrowserRouter>
+          <Routes>
+            <Route element={<DefaultLayout />}>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/posts" element={<PostsPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+
+      </PostsContext.Provider>
     </>
   )
 }
