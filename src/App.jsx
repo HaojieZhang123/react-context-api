@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import components
 import DefaultLayout from "./layouts/DefaultLayout";
 import Homepage from "./pages/Homepage";
-import PostsPage from "./pages/PostsPage";
+import PostsPage from "./pages/posts/PostsPage";
 
 // import context
 import PostsContext from "./context/PostsContext";
