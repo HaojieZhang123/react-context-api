@@ -8,6 +8,7 @@ import PostsPage from "./pages/posts/PostsPage";
 
 // import context
 import PostsContext from "./context/PostsContext";
+import { AlertProvider } from "./context/AlertContext";
 
 function App() {
 
@@ -40,18 +41,23 @@ function App() {
 
   return (
     <>
-      <PostsContext.Provider value={posts}>
 
-        <BrowserRouter>
-          <Routes>
-            <Route element={<DefaultLayout />}>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/posts" element={<PostsPage />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+      <AlertProvider>
 
-      </PostsContext.Provider>
+        <PostsContext.Provider value={posts}>
+
+          <BrowserRouter>
+            <Routes>
+              <Route element={<DefaultLayout />}>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/posts" element={<PostsPage />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+
+        </PostsContext.Provider>
+
+      </AlertProvider>
     </>
   )
 }

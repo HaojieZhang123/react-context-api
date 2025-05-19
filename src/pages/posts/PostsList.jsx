@@ -14,9 +14,7 @@ const PostsList = () => {
         <>
             {posts.map((post) => (
                 <>
-                    <div>
-                        <PostCard key={post.id} post={post} />
-                    </div>
+                    <PostCard key={post.id} post={post} />
                     <hr />
                 </>
             ))}
